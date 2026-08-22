@@ -18,105 +18,113 @@
             --primary-dark: #0a192f;
             --primary-blue: #0052cc;
             --accent-green: #00875a;
-            --bg-light: #f4f5f7;
+            --bg-light: #f8fafc;
             --card-bg: #ffffff;
-            --text-dark: #172b4d;
-            --text-muted: #5e6c84;
-            --border: #dfe1e6;
-            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 30px -10px rgba(0, 82, 204, 0.15);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
         body { background: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
 
-        /* Announcement Bar */
-        .top-bar { background: #0747a6; color: white; text-align: center; font-size: 0.8rem; padding: 6px 15px; font-weight: 600; }
+        /* Top Announcement Bar */
+        .top-bar { background: linear-gradient(90deg, #0747a6 0%, #0052cc 100%); color: white; text-align: center; font-size: 0.85rem; padding: 8px 15px; font-weight: 600; letter-spacing: 0.3px; }
 
         /* Navigation Header */
-        header { background: #ffffff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
+        header { background: #ffffff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; box-shadow: var(--shadow-sm); }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; }
-        .logo { font-size: 1.6rem; font-weight: 800; color: var(--primary-dark); text-decoration: none; display: flex; align-items: center; gap: 8px; }
-        .logo i { color: var(--primary-blue); }
+        .logo { font-size: 1.6rem; font-weight: 800; color: var(--primary-dark); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .logo i { color: var(--primary-blue); background: #deebff; padding: 10px; border-radius: 12px; font-size: 1.2rem; }
         .logo span { color: var(--primary-blue); }
         .nav-links { display: flex; gap: 24px; align-items: center; }
         .nav-links a { color: var(--text-dark); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: 0.2s; }
         .nav-links a:hover { color: var(--primary-blue); }
-        .btn-header { background: var(--primary-blue); color: white !important; padding: 10px 20px; border-radius: 8px; font-weight: 700; }
+        .btn-header { background: var(--primary-blue); color: white !important; padding: 10px 22px; border-radius: 50px; font-weight: 700; box-shadow: 0 4px 12px rgba(0, 82, 204, 0.25); transition: transform 0.2s; }
+        .btn-header:hover { transform: translateY(-2px); }
 
-        /* Hero Banner */
-        .hero { background: linear-gradient(135deg, #0a192f 0%, #0052cc 100%); color: white; padding: 70px 24px 90px; text-align: center; position: relative; }
-        .hero h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.5px; }
-        .hero p { font-size: 1.15rem; color: #b3d4ff; max-width: 700px; margin: 0 auto 35px; }
+        /* Hero Banner with Modern Gradient & Glassmorphism */
+        .hero { background: radial-gradient(circle at top right, #1e3a8a, #0a192f); color: white; padding: 80px 24px 100px; text-align: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%); pointer-events: none; }
+        .hero-badge { display: inline-block; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 6px 16px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px; backdrop-filter: blur(5px); }
+        .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.5px; line-height: 1.2; }
+        .hero p { font-size: 1.2rem; color: #cbd5e1; max-width: 700px; margin: 0 auto 40px; font-weight: 400; }
 
         /* Search Bar */
-        .search-wrapper { max-width: 650px; margin: 0 auto; background: white; border-radius: 50px; padding: 8px 12px; display: flex; align-items: center; box-shadow: var(--shadow); }
-        .search-wrapper i { color: var(--text-muted); margin-left: 15px; font-size: 1.2rem; }
-        .search-wrapper input { flex: 1; border: none; outline: none; padding: 12px 15px; font-size: 1rem; color: var(--text-dark); }
-        .search-wrapper button { background: var(--accent-green); color: white; border: none; padding: 12px 28px; border-radius: 40px; font-weight: 700; cursor: pointer; font-size: 0.95rem; }
+        .search-wrapper { max-width: 680px; margin: 0 auto; background: white; border-radius: 50px; padding: 8px 10px 8px 20px; display: flex; align-items: center; box-shadow: var(--shadow-lg); }
+        .search-wrapper i { color: var(--primary-blue); font-size: 1.2rem; }
+        .search-wrapper input { flex: 1; border: none; outline: none; padding: 12px 15px; font-size: 1rem; color: var(--text-dark); background: transparent; }
+        .search-wrapper button { background: var(--accent-green); color: white; border: none; padding: 14px 32px; border-radius: 40px; font-weight: 700; cursor: pointer; font-size: 0.95rem; box-shadow: 0 4px 12px rgba(0, 135, 90, 0.3); transition: 0.2s; }
+        .search-wrapper button:hover { background: #006644; }
 
         /* Main Container */
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
         /* Section Headings */
-        .section-header { text-align: center; margin: 60px 0 35px; }
-        .section-header h2 { font-size: 2rem; font-weight: 800; color: var(--primary-dark); }
-        .section-header p { color: var(--text-muted); font-size: 1rem; margin-top: 5px; }
+        .section-header { text-align: center; margin: 70px 0 40px; }
+        .section-header h2 { font-size: 2.2rem; font-weight: 800; color: var(--primary-dark); letter-spacing: -0.5px; }
+        .section-header p { color: var(--text-muted); font-size: 1.05rem; margin-top: 8px; }
 
-        /* Category Cards Grid */
-        .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 60px; }
-        .cat-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 24px; text-decoration: none; color: inherit; transition: all 0.2s; box-shadow: 0 4px 12px rgba(0,0,0,0.03); display: flex; flex-direction: column; align-items: flex-start; }
-        .cat-card:hover { transform: translateY(-5px); border-color: var(--primary-blue); box-shadow: var(--shadow); }
-        .cat-icon { width: 50px; height: 50px; background: #deebff; color: var(--primary-blue); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 16px; }
-        .cat-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 6px; }
-        .cat-card p { font-size: 0.85rem; color: var(--text-muted); }
+        /* Category Grid */
+        .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-bottom: 60px; }
+        .cat-card { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 30px 24px; text-decoration: none; color: inherit; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; align-items: flex-start; position: relative; overflow: hidden; }
+        .cat-card:hover { transform: translateY(-8px); border-color: var(--primary-blue); box-shadow: var(--shadow-md); }
+        .cat-icon { width: 56px; height: 56px; background: linear-gradient(135deg, #e0e7ff 0%, #deebff 100%); color: var(--primary-blue); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 20px; }
+        .cat-card h3 { font-size: 1.25rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 8px; }
+        .cat-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+        .cat-card .card-arrow { margin-top: auto; padding-top: 16px; font-weight: 700; font-size: 0.85rem; color: var(--primary-blue); display: flex; align-items: center; gap: 6px; }
 
-        /* Product Comparison Section */
-        .product-list { display: flex; flex-direction: column; gap: 20px; margin-bottom: 60px; }
-        .product-card { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 24px; display: grid; grid-template-columns: 1fr; gap: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
-        @media(min-width: 850px) { .product-card { grid-template-columns: 2fr 2fr 1.2fr; align-items: center; } }
+        /* Enhanced Product List Cards */
+        .product-list { display: flex; flex-direction: column; gap: 24px; margin-bottom: 60px; }
+        .product-card { background: white; border: 1px solid var(--border); border-radius: 20px; padding: 28px; display: grid; grid-template-columns: 1fr; gap: 24px; box-shadow: var(--shadow-sm); transition: all 0.3s ease; position: relative; }
+        .product-card:hover { border-color: #cbd5e1; box-shadow: var(--shadow-md); transform: translateY(-3px); }
+        @media(min-width: 850px) { .product-card { grid-template-columns: 2.2fr 2fr 1.2fr; align-items: center; } }
         
-        .badge { background: #fffae6; color: #172b4d; border: 1px solid #ffe380; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 800; display: inline-block; margin-bottom: 10px; }
-        .prod-details h3 { font-size: 1.3rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 4px; }
-        .prod-details p { font-size: 0.85rem; color: var(--text-muted); }
+        .badge { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); color: #78350f; border: 1px solid #fcd34d; padding: 6px 14px; border-radius: 30px; font-size: 0.75rem; font-weight: 800; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 12px; }
+        .prod-details h3 { font-size: 1.4rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 6px; }
+        .prod-details p { font-size: 0.9rem; color: var(--text-muted); }
 
-        .prod-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; border-top: 1px dashed var(--border); border-bottom: 1px dashed var(--border); padding: 12px 0; }
-        @media(min-width: 850px) { .prod-specs { border: none; padding: 0; } }
-        .spec-item strong { display: block; font-size: 1.1rem; color: var(--primary-dark); font-weight: 800; }
-        .spec-item span { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; }
+        .prod-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; background: #f8fafc; border-radius: 12px; padding: 16px; border: 1px solid #f1f5f9; }
+        .spec-item strong { display: block; font-size: 1.15rem; color: var(--primary-dark); font-weight: 800; }
+        .spec-item span { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; }
 
-        .btn-apply { background: var(--accent-green); color: white; border: none; padding: 12px 20px; border-radius: 8px; font-weight: 700; text-decoration: none; text-align: center; display: block; font-size: 0.95rem; transition: 0.2s; }
-        .btn-apply:hover { background: #006644; }
+        .btn-apply { background: var(--accent-green); color: white; border: none; padding: 14px 24px; border-radius: 12px; font-weight: 700; text-decoration: none; text-align: center; display: block; font-size: 0.95rem; box-shadow: 0 4px 12px rgba(0, 135, 90, 0.2); transition: all 0.2s; }
+        .btn-apply:hover { background: #006644; transform: scale(1.02); }
 
-        /* Application & Consultation Form Section */
-        .form-section { background: white; border: 1px solid var(--border); border-radius: 20px; padding: 40px; margin-bottom: 70px; box-shadow: var(--shadow); display: grid; grid-template-columns: 1fr; gap: 40px; }
+        /* Form Section */
+        .form-section { background: white; border: 1px solid var(--border); border-radius: 24px; padding: 48px; margin-bottom: 80px; box-shadow: var(--shadow-md); display: grid; grid-template-columns: 1fr; gap: 48px; }
         @media(min-width: 900px) { .form-section { grid-template-columns: 1fr 1fr; } }
         
-        .form-info h2 { font-size: 2rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 12px; }
-        .form-info p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px; }
-        .feature-item { display: flex; gap: 12px; margin-bottom: 16px; align-items: flex-start; }
-        .feature-item i { color: var(--accent-green); font-size: 1.2rem; margin-top: 2px; }
+        .form-info h2 { font-size: 2.2rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 16px; }
+        .form-info p { color: var(--text-muted); font-size: 1rem; margin-bottom: 30px; }
+        .feature-item { display: flex; gap: 16px; margin-bottom: 20px; align-items: flex-start; }
+        .feature-item i { color: var(--accent-green); background: #dcfce7; padding: 10px; border-radius: 50%; font-size: 1rem; }
 
-        .lead-form .form-group { margin-bottom: 18px; }
-        .lead-form label { display: block; font-size: 0.85rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 6px; }
-        .lead-form input, .lead-form select { width: 100%; padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.95rem; outline: none; transition: 0.2s; }
-        .lead-form input:focus, .lead-form select:focus { border-color: var(--primary-blue); }
-        .btn-form-submit { width: 100%; background: var(--primary-blue); color: white; border: none; padding: 14px; border-radius: 8px; font-weight: 800; font-size: 1rem; cursor: pointer; }
+        .lead-form .form-group { margin-bottom: 20px; }
+        .lead-form label { display: block; font-size: 0.85rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 8px; }
+        .lead-form input, .lead-form select { width: 100%; padding: 14px 18px; border: 1.5px solid var(--border); border-radius: 12px; font-size: 0.95rem; outline: none; transition: 0.2s; background: #f8fafc; }
+        .lead-form input:focus, .lead-form select:focus { border-color: var(--primary-blue); background: white; box-shadow: 0 0 0 4px rgba(0, 82, 204, 0.1); }
+        .btn-form-submit { width: 100%; background: var(--primary-blue); color: white; border: none; padding: 16px; border-radius: 12px; font-weight: 800; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 14px rgba(0, 82, 204, 0.3); transition: 0.2s; }
+        .btn-form-submit:hover { background: #0043a8; }
 
         /* FAQs */
-        .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 80px; }
-        .faq-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
-        .faq-card h4 { font-size: 1rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 8px; }
-        .faq-card p { font-size: 0.85rem; color: var(--text-muted); }
+        .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 80px; }
+        .faq-card { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 28px; box-shadow: var(--shadow-sm); }
+        .faq-card h4 { font-size: 1.1rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 10px; }
+        .faq-card p { font-size: 0.9rem; color: var(--text-muted); }
 
         /* Footer */
-        footer { background: var(--primary-dark); color: #8993a4; padding: 60px 24px 30px; font-size: 0.85rem; }
-        .footer-grid { max-width: 1200px; margin: 0 auto 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
-        .footer-col h4 { color: white; font-size: 1rem; font-weight: 700; margin-bottom: 16px; }
+        footer { background: var(--primary-dark); color: #94a3b8; padding: 70px 24px 35px; font-size: 0.9rem; }
+        .footer-grid { max-width: 1200px; margin: 0 auto 50px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; }
+        .footer-col h4 { color: white; font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; }
         .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 10px; }
-        .footer-col ul li a { color: #8993a4; text-decoration: none; transition: 0.2s; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul li a { color: #94a3b8; text-decoration: none; transition: 0.2s; }
         .footer-col ul li a:hover { color: white; }
-        .footer-bottom { max-width: 1200px; margin: 0 auto; border-top: 1px solid #253858; padding-top: 20px; text-align: center; font-size: 0.75rem; }
+        .footer-bottom { max-width: 1200px; margin: 0 auto; border-top: 1px solid #1e293b; padding-top: 25px; text-align: center; font-size: 0.8rem; color: #64748b; }
     </style>
 </head>
 <body>
@@ -139,13 +147,14 @@
     </header>
 
     <section class="hero">
-        <h1>Smart Financial Comparison for Australians</h1>
-        <p>Compare verified interest rates, bonus rewards, and loan offers from top tier banks.</p>
+        <div class="hero-badge"><i class="fa-solid fa-shield-halved"></i> 100% Free & Independent Comparison</div>
+        <h1>Smart Financial Comparison<br>for Australians</h1>
+        <p>Compare verified interest rates, bonus rewards, and loan offers from Australia's top tier banks.</p>
         
         <div class="search-wrapper">
             <i class="fa-solid fa-magnifying-glass"></i>
             <input type="text" id="searchInput" placeholder="Search Qantas, CommBank, Westpac, Loans..." onkeyup="filterProducts()">
-            <button onclick="filterProducts()">Compare</button>
+            <button onclick="filterProducts()">Compare Deals</button>
         </div>
     </section>
 
@@ -162,25 +171,29 @@
                 <div class="cat-icon"><i class="fa-solid fa-credit-card"></i></div>
                 <h3>Credit Cards</h3>
                 <p>Frequent flyer, balance transfer, and low-rate cards.</p>
+                <div class="card-arrow">Explore Cards <i class="fa-solid fa-arrow-right"></i></div>
             </a>
             <a href="#products" class="cat-card">
                 <div class="cat-icon"><i class="fa-solid fa-piggy-bank"></i></div>
                 <h3>Savings Accounts</h3>
                 <p>High bonus interest rates up to 5.25% p.a.</p>
+                <div class="card-arrow">View Savings <i class="fa-solid fa-arrow-right"></i></div>
             </a>
             <a href="#products" class="cat-card">
                 <div class="cat-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
                 <h3>Personal Loans</h3>
                 <p>Low fixed rates for debt consolidation & vehicles.</p>
+                <div class="card-arrow">Compare Loans <i class="fa-solid fa-arrow-right"></i></div>
             </a>
             <a href="#products" class="cat-card">
                 <div class="cat-icon"><i class="fa-solid fa-plane"></i></div>
                 <h3>Travel Cover</h3>
                 <p>Comprehensive international insurance options.</p>
+                <div class="card-arrow">View Plans <i class="fa-solid fa-arrow-right"></i></div>
             </a>
         </div>
 
-        <!-- Live Products Comparison -->
+        <!-- Featured Deals -->
         <div class="section-header" id="products">
             <h2>Featured Deals in Australia</h2>
             <p>Hand-picked offers from top banking partners</p>
@@ -278,50 +291,53 @@
 
         </div>
 
-        <!-- SEO Finance Guides & Articles Section -->
+        <!-- SEO Finance Guides -->
         <div class="section-header" id="guides">
-            <h2>Australian Finance Guides & Tips</h2>
-            <p>Smart Insights to Maximize Savings, Points & Loan Decisions</p>
+            <h2>Australian Finance Guides & Insights</h2>
+            <p>Smart articles to help you make informed financial choices</p>
         </div>
 
-        <div class="category-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+        <div class="category-grid">
             <a href="savings-guide.html" class="cat-card">
                 <div class="cat-icon"><i class="fa-solid fa-book-open"></i></div>
-                <h3>How High-Interest Savings Accounts Work in Australia</h3>
-                <p>Maximizing bonus interest criteria like monthly deposit thresholds and zero withdrawal penalties across major Australian banks.</p>
+                <h3>High-Interest Savings Guide</h3>
+                <p>Learn how bonus interest criteria and deposit limits work across Australian accounts.</p>
+                <div class="card-arrow">Read Article <i class="fa-solid fa-arrow-right"></i></div>
             </a>
 
             <a href="credit-cards-guide.html" class="cat-card">
                 <div class="cat-icon"><i class="fa-solid fa-credit-card"></i></div>
-                <h3>Understanding 0% Balance Transfer Cards</h3>
-                <p>Consolidating high-interest card debt using promotional 0% p.a. terms while avoiding hidden balance transfer fees.</p>
+                <h3>0% Balance Transfer Guide</h3>
+                <p>Consolidating high-interest credit card debt while avoiding promotional period pitfalls.</p>
+                <div class="card-arrow">Read Article <i class="fa-solid fa-arrow-right"></i></div>
             </a>
 
             <a href="contact.html" class="cat-card">
-                <div class="cat-icon"><i class="fa-solid fa-calculator"></i></div>
-                <h3>Request Financial Consultation</h3>
-                <p>Contact our support team directly to discuss high-level guidelines and tailored general financial details.</p>
+                <div class="cat-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+                <h3>Contact Support Desk</h3>
+                <p>Reach out to our team for questions regarding comparison listings or general help.</p>
+                <div class="card-arrow">Contact Us <i class="fa-solid fa-arrow-right"></i></div>
             </a>
         </div>
 
-        <!-- Consultation & Lead Form -->
+        <!-- Consultation Form -->
         <div class="form-section" id="apply">
             <div class="form-info">
                 <h2>Request Personal Guidance</h2>
-                <p>Not sure which product matches your requirement? Leave your details for an expert review.</p>
+                <p>Not sure which financial option fits your situation? Submit a request for assistance.</p>
                 
                 <div class="feature-item">
-                    <i class="fa-solid fa-circle-check"></i>
+                    <i class="fa-solid fa-check"></i>
                     <div>
                         <strong>Independent & Unbiased</strong>
-                        <p style="font-size: 0.85rem; color: var(--text-muted);">We compare offers across major Australian financial brands.</p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">We compare offers across major Australian banking options.</p>
                     </div>
                 </div>
                 <div class="feature-item">
-                    <i class="fa-solid fa-circle-check"></i>
+                    <i class="fa-solid fa-shield-halved"></i>
                     <div>
                         <strong>100% Secure & Confidential</strong>
-                        <p style="font-size: 0.85rem; color: var(--text-muted);">Your information is encrypted and never sold to third parties.</p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Your information is kept safe and never sold to third parties.</p>
                     </div>
                 </div>
             </div>
@@ -352,18 +368,18 @@
             </form>
         </div>
 
-        <!-- Frequently Asked Questions -->
+        <!-- FAQs -->
         <div class="section-header">
             <h2>Frequently Asked Questions</h2>
         </div>
         <div class="faq-grid">
             <div class="faq-card">
                 <h4>Is AusFinanceHub free to use?</h4>
-                <p>Yes, our comparison service is 100% free for all users. We may earn a referral fee from partner providers when you successfully apply.</p>
+                <p>Yes, our comparison service is completely free. We may receive referral fees from partners when you apply through our site links.</p>
             </div>
             <div class="faq-card">
-                <h4>How often are interest rates updated?</h4>
-                <p>We monitor interest rates and bonus point offers daily to ensure you receive up-to-date comparison data.</p>
+                <h4>How often are rates updated?</h4>
+                <p>We regularly monitor interest rates and promotional bonus offers to keep comparison data accurate.</p>
             </div>
         </div>
 
@@ -374,12 +390,12 @@
             <div class="footer-col">
                 <h4>AusFinanceHub</h4>
                 <ul>
-                    <li><a href="#">About Independent Comparison</a></li>
+                    <li><a href="#">Independent Comparison</a></li>
                     <li><a href="contact.html">Contact Support</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>Legal Information</h4>
+                <h4>Legal Disclosures</h4>
                 <ul>
                     <li><a href="privacy-policy.html">Privacy Policy</a></li>
                     <li><a href="terms.html">Terms of Service</a></li>
@@ -387,7 +403,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 AusFinanceHub. All Rights Reserved. General Advice Disclaimer: Information provided is general in nature and does not take into account your personal financial situation.</p>
+            <p>&copy; 2026 AusFinanceHub. All Rights Reserved. General Advice Disclaimer: Information provided is general in nature and does not take into account individual financial objectives.</p>
         </div>
     </footer>
 
