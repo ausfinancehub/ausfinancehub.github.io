@@ -3,81 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AusFinanceHub - Compare Best Credit Cards & Loans in Australia</title>
+    <title>AusFinanceHub - Best Australian Credit Cards, Loans & Savings Comparison</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #002b49; --secondary: #00a86b; --light: #f4f7f9; --dark: #1f2937; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: var(--light); color: var(--dark); }
-        header { background: var(--primary); color: white; padding: 1.5rem; text-align: center; }
-        header h1 { margin: 0; font-size: 2.2rem; }
-        header p { margin: 5px 0 0; color: #cbd5e1; }
-        nav { background: #001f35; padding: 10px; text-align: center; }
-        nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; }
-        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
-        .hero { text-align: center; padding: 40px 20px; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 30px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { background: white; padding: 25px; border-radius: 8px; border-top: 4px solid var(--secondary); box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: center; }
-        .card h3 { margin-top: 0; color: var(--primary); }
-        .btn { display: inline-block; background: var(--secondary); color: white; text-decoration: none; padding: 12px 25px; border-radius: 5px; font-weight: bold; margin-top: 15px; }
-        .btn:hover { background: #008f5a; }
-        .contact-box { background: white; padding: 30px; border-radius: 8px; margin-top: 40px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        footer { background: var(--primary); color: white; padding: 30px 20px; text-align: center; margin-top: 50px; font-size: 0.85rem; line-height: 1.6; }
-        .disclaimer { background: rgba(255,255,255,0.1); padding: 15px; border-radius: 5px; margin-bottom: 20px; text-align: justify; }
+        :root {
+            --primary: #0a2540;
+            --primary-accent: #635bff;
+            --secondary: #00d4b1;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
+
+        /* Top Bar Announcement */
+        .top-bar { background: linear-gradient(90deg, #0a2540 0%, #1e3a8a 100%); color: #38bdf8; text-align: center; padding: 8px 15px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.5px; }
+
+        /* Header & Navigation */
+        header { background: #ffffff; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo span { color: var(--primary-accent); }
+        nav { display: flex; gap: 24px; }
+        nav a { color: var(--text-dark); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s ease; }
+        nav a:hover { color: var(--primary-accent); }
+
+        /* Hero Section */
+        .hero { background: linear-gradient(135deg, #0a2540 0%, #172554 100%); color: #ffffff; padding: 80px 24px; text-align: center; position: relative; overflow: hidden; }
+        .hero::after { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(99,91,255,0.15) 0%, rgba(255,255,255,0) 70%); pointer-events: none; }
+        .hero-content { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
+        .hero badge { background: rgba(99, 91, 255, 0.2); color: #a5b4fc; border: 1px solid rgba(165, 180, 252, 0.3); padding: 6px 16px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; display: inline-block; margin-bottom: 20px; }
+        .hero h1 { font-size: 2.8rem; font-weight: 800; line-height: 1.2; margin-bottom: 20px; letter-spacing: -0.5px; }
+        .hero p { font-size: 1.15rem; color: #cbd5e1; max-width: 650px; margin: 0 auto 30px; }
+
+        /* Main Container & Comparison Cards */
+        .container { max-width: 1200px; margin: -40px auto 60px; padding: 0 24px; position: relative; z-index: 10; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; }
+        
+        .card { background: var(--card-bg); border-radius: 16px; padding: 32px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; justify-content: space-between; }
+        .card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: #cbd5e1; }
+        
+        .card-icon { width: 56px; height: 56px; background: rgba(99, 91, 255, 0.08); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 20px; }
+        .card h3 { font-size: 1.35rem; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
+        .card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px; flex-grow: 1; }
+        
+        .card-features { list-style: none; margin-bottom: 24px; padding: 0; }
+        .card-features li { font-size: 0.88rem; color: var(--text-dark); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; font-weight: 500; }
+        .card-features li::before { content: "✓"; color: var(--secondary); font-weight: 800; }
+
+        .btn { display: block; width: 100%; text-align: center; background: var(--primary-accent); color: #ffffff; text-decoration: none; padding: 14px 20px; border-radius: 10px; font-weight: 700; font-size: 0.95rem; transition: all 0.2s ease; box-shadow: 0 4px 12px rgba(99, 91, 255, 0.25); }
+        .btn:hover { background: #4f46e5; box-shadow: 0 6px 16px rgba(99, 91, 255, 0.35); }
+
+        /* Trust Banner */
+        .trust-banner { background: #ffffff; border: 1px solid var(--border-color); border-radius: 16px; padding: 40px; margin-top: 50px; text-align: center; box-shadow: var(--shadow-sm); }
+        .trust-banner h3 { font-size: 1.5rem; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
+        .trust-banner p { color: var(--text-muted); max-width: 600px; margin: 0 auto 20px; }
+        .contact-email { display: inline-block; background: #f1f5f9; padding: 10px 20px; border-radius: 30px; font-weight: 600; color: var(--primary); font-size: 0.9rem; border: 1px solid #e2e8f0; }
+
+        /* Footer */
+        footer { background: var(--primary); color: #94a3b8; padding: 50px 24px 30px; margin-top: 80px; font-size: 0.85rem; }
+        .footer-content { max-width: 1200px; margin: 0 auto; }
+        .disclaimer-box { background: rgba(255, 255, 255, 0.04); border-left: 3px solid var(--primary-accent); padding: 20px; border-radius: 6px; margin-bottom: 30px; line-height: 1.7; }
+        .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); color: #64748b; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-container { flex-direction: column; gap: 15px; }
+            .grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
+    <div class="top-bar">
+        🇦🇺 Australia's Independent Financial Comparison Portal
+    </div>
+
     <header>
-        <h1>AusFinanceHub</h1>
-        <p>Your Trusted Guide to Australian Credit Cards, Savings & Personal Loans</p>
+        <div class="nav-container">
+            <a href="#" class="logo">AusFinance<span>Hub</span></a>
+            <nav>
+                <a href="#credit-cards">Credit Cards</a>
+                <a href="#loans">Personal Loans</a>
+                <a href="#savings">Savings Accounts</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
     </header>
 
-    <nav>
-        <a href="#">Home</a>
-        <a href="#credit-cards">Credit Cards</a>
-        <a href="#loans">Personal Loans</a>
-        <a href="#savings">Savings Accounts</a>
-        <a href="#contact">Contact Us</a>
-    </nav>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero badge">100% Free & Independent Comparison</div>
+            <h1>Smart Financial Comparisons for Australians</h1>
+            <p>Compare top-rated credit cards, low-rate personal loans, and high-interest savings accounts tailored for Australian residents.</p>
+        </div>
+    </section>
 
     <div class="container">
-        <div class="hero">
-            <h2>Compare Top Australian Financial Products</h2>
-            <p>Find low interest rates, high reward points, and zero fee savings accounts tailored for Australian residents.</p>
-        </div>
-
         <div class="grid">
+            
+            <!-- Card 1 -->
             <div class="card" id="credit-cards">
-                <h3>Rewards Credit Cards</h3>
-                <p>Earn frequent flyer points, cashback, and enjoy low annual fees with Australia's top bank cards.</p>
+                <div>
+                    <div class="card-icon">💳</div>
+                    <h3>Rewards & Cashback Credit Cards</h3>
+                    <p>Maximize your spend with Qantas Frequent Flyer points, bonus velocity rewards, and $0 annual fee cards.</p>
+                    <ul class="card-features">
+                        <li>Bonus Frequent Flyer Points</li>
+                        <li>Low Rate & Balance Transfer Offers</li>
+                        <li>$0 International Transaction Fees</li>
+                    </ul>
+                </div>
                 <a href="#" class="btn">Compare Credit Cards</a>
             </div>
 
+            <!-- Card 2 -->
             <div class="card" id="loans">
-                <h3>Personal Loans</h3>
-                <p>Looking for competitive interest rates? Compare flexible repayment terms from trusted Australian lenders.</p>
-                <a href="#" class="btn">Compare Loans</a>
+                <div>
+                    <div class="card-icon">📊</div>
+                    <h3>Competitive Personal Loans</h3>
+                    <p>Find flexible personal loans for debt consolidation, home renovation, or vehicle purchases with low fixed rates.</p>
+                    <ul class="card-features">
+                        <li>Fixed & Variable Rate Options</li>
+                        <li>Zero Prepayment Penalties</li>
+                        <li>Fast Online Approval Process</li>
+                    </ul>
+                </div>
+                <a href="#" class="btn">Compare Personal Loans</a>
             </div>
 
+            <!-- Card 3 -->
             <div class="card" id="savings">
-                <h3>High Interest Savings</h3>
-                <p>Maximize your savings with high bonus interest accounts from Australia's leading digital banks.</p>
-                <a href="#" class="btn">Compare Accounts</a>
+                <div>
+                    <div class="card-icon">📈</div>
+                    <h3>High-Interest Savings Accounts</h3>
+                    <p>Grow your savings faster with Australia's top APY bonus rates and fee-free digital everyday banking accounts.</p>
+                    <ul class="card-features">
+                        <li>Government Guaranteed up to $250k</li>
+                        <li>No Monthly Account Keeping Fees</li>
+                        <li>Competitive Bonus Interest Rates</li>
+                    </ul>
+                </div>
+                <a href="#" class="btn">Compare Savings Accounts</a>
             </div>
+
         </div>
 
-        <div class="contact-box" id="contact">
-            <h3>Get In Touch</h3>
-            <p>Have questions about financial comparison? Reach out to our editorial team.</p>
-            <p><strong>Email Us:</strong> ausfinancehub.au@gmail.com</p>
+        <div class="trust-banner" id="contact">
+            <h3>Have Questions or Need Assistance?</h3>
+            <p>Our research team is committed to bringing accurate, up-to-date Australian market updates.</p>
+            <div class="contact-email">📩 Contact Us: ausfinancehub.au@gmail.com</div>
         </div>
     </div>
 
     <footer>
-        <div class="container">
-            <div class="disclaimer">
-                <strong>Financial Disclaimer & Affiliate Disclosure:</strong> AusFinanceHub is an independent financial information and comparison website. We are not a credit provider or financial advisor. All information provided is general in nature. We may receive affiliate compensation when you click on links to financial products listed on this site.
+        <div class="footer-content">
+            <div class="disclaimer-box">
+                <strong>Financial Disclaimer & Affiliate Disclosure:</strong> AusFinanceHub is an independent financial comparison website. We do not provide financial advice, credit assistance, or issue loans directly. All product information is general in nature and does not take into account your personal objectives, financial situation, or needs. We may receive affiliate compensation from financial providers when users click links on our site.
             </div>
-            <p>&copy; 2026 AusFinanceHub. All Rights Reserved. | Privacy Policy | Terms of Service</p>
+            <div class="footer-bottom">
+                &copy; 2026 AusFinanceHub. All Rights Reserved. | Designed for Australian Consumers
+            </div>
         </div>
     </footer>
 
